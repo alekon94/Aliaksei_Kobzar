@@ -1,2 +1,0 @@
-# Aliaksei_Kobzar
-Здравствуйте
