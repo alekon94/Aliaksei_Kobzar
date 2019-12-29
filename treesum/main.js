@@ -8,4 +8,4 @@ function treeSum (arr) {
     }
     return sum;
 }
-alert (treeSum([3, 6, [3,[3,4,[],5],4,6]]));//34
+console.log (treeSum([3, 6, [3,[3,4,[],5],4,6]]));//34
