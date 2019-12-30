@@ -2,10 +2,7 @@ function sumOfElements(arr) {
 let val = +prompt ("Enter value:");
 for (let elem of arr){
     for(let newelem of arr) {
-        if (val == elem + newelem){
-            if (arr[elem] - arr[newelem] == 0){
-                continue;
-            }
+        if (val == elem + newelem && arr[elem]!= arr[newelem]){
             return true;
         }
     }
