@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        a{
+            color: #369;
+            font: 1em Arial,sans-serif;
+        }
+        .play{
+            width: 100px;
+            height: 100px;
+            background-color: #369;
+            border-radius: 100px;
+            position: fixed;
+            top: 100px;
+        }
+    </style>
+</head>
+<body>
+<div class="play"></div>
+<a href="#" onclick="opacity()">Анимация</a>
+<script>
+    function opacity () {
+        let opa = document.body.firstElementChild;
+        opa.style.opacity = '50%';
+    }
+</script>
+</body>
+</html>
