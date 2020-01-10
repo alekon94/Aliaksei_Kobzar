@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="submit" id="btn" value="text"> <div id = "box"></div>
+<script>
+    function symb(){
+        let valunic = Math.floor(Math.random() * (1114111 - 0) + 0);
+        let unic = String.fromCharCode(valunic);
+        return unic;
+    }
+    function txt(){
+        let lgh = Math.floor(Math.random() * (30 - 0) + 0);
+        let str = '';
+        for (let i = 0; i < lgh; i++){
+            str += symb();
+        }
+        return str;
+    }
+    function inp(){
+        let r=Math.floor(Math.random() * (256));
+        let g=Math.floor(Math.random() * (256));
+        let b=Math.floor(Math.random() * (256));
+        let col ='#' + r.toString(16) + g.toString(16) + b.toString(16);
+
+
+        document.getElementById("btn").style.backgroundColor = col;
+        document.getElementById("btn").value = txt();
+
+    }
+    document.getElementById("btn").onclick = inp;
+</script>
+</body>
+</html>
