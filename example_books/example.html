@@ -93,18 +93,32 @@
  }
     </style>
 </head>
-<body>
+
 <div id="header">
-    <div class ="font_header">Books App</div>
-    <div class ="font_header"><input type="text" class="srch" value="Search books..."></div>
+    <div class="font_header">Books App</div>
+    <div class="font_header"><input type="text" class="srch" value="Search books..."></div>
 </div>
-<div class = "ft_h1">Books to read</div>
-<div class="ft">Name of the Wind<input type="submit" class="inp_del" value="delete"></div><br>
-<div class="ft">The Wise Man's Fear<input type="submit" class="inp_del" value="delete"></div><br>
-<div class="ft">Kafka on the Shore<input type="submit" class="inp_del" value="delete"></div><br>
-<div class="ft">The Master and the Margarita<input type="submit" class="inp_del" value="delete"></div><br>
-<div id = "bottom1">
-<input type="text" class="srch_add" value="Add a book..."><input type="submit" class="inp_add" value="Add">
+<div class="ft_h1">Books to read</div>
+<ul id="book-list">
+    <li>
+        <div class="ft">Name of the Wind<input type="submit" class="inp_del" value="delete"></div>
+    </li>
+    <li>
+        <div class="ft">The Wise Man's Fear<input type="submit" class="inp_del" value="delete"></div>
+    </li>
+
+    <li>
+        <div class="ft">Kafka on the Shore<input type="submit" class="inp_del" value="delete"></div>
+    </li>
+    <li>
+        <div class="ft">The Master and the Margarita<input type="submit" class="inp_del" value="delete"></div>
+    </li>
+</ul>
+<div id="bottom1">
+    <input type="text" class="srch_add" value="Add a book..."><input type="submit" class="inp_add" value="Add"/>
 </div>
+<input type="checkbox" id="hide"/>
+<label for="hide">Hide all books</label>
+<script src="app.js"></script>
 </body>
 </html>
