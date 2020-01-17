@@ -10,6 +10,7 @@ listOfBooks.addEventListener('click', function (event) {
 });
 
 //add
+
 const addForm = document.forms['add-book'];
 addForm.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -17,17 +18,38 @@ addForm.addEventListener('submit', function (e) {
     const value = addForm.querySelector('input[type="text"]').value;
     const li = document.createElement('li');
     const bookName = document.createElement('div');
-    const deleteBtn = document.createElement('div');
+
 
     bookName.classList.add('ft');
-    deleteBtn.classList.add('inp_del');
+
 
     bookName.textContent = value;
-    deleteBtn.textContent = 'delete';
+    bookName.insertAdjacentHTML('beforeend', '<input type="submit" class="inp_del" value="delete">');
 
     li.appendChild(bookName);
-    li.appendChild(deleteBtn);
+
     listOfBooks.appendChild(li);
 
 });
 
+
+//hide
+document.getElementById('hide').onclick = function () {
+    document.getElementById('book-list').hidden = true;
+    document.getElementById('hide').onclick = function () {
+        document.getElementById('book-list').hidden = false;
+    }
+}
+//search
+let find = document.getElementById('find');
+find.onkeyup = function () {
+    let filter = find.value.toUpperCase();
+    let lis = document.getElementsByTagName('li');
+    for (let i = 0; i < lis.length; i++) {
+        let name = lis[i].getElementsByClassName('ft')[0].innerHTML;
+        if (name.toUpperCase().indexOf(filter) == 0)
+            lis[i].style.display = 'list-item';
+        else
+            lis[i].style.display = 'none';
+    }
+}
