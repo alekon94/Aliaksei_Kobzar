@@ -16,11 +16,11 @@ addForm.addEventListener('submit', function (e) {
 
     const value = addForm.querySelector('input[type="text"]').value;
     const li = document.createElement('li');
-    const bookName = document.createElement('span');
-    const deleteBtn = document.createElement('span');
+    const bookName = document.createElement('div');
+    const deleteBtn = document.createElement('div');
 
-    bookName.classList.add('name');
-    deleteBtn.classList.add('delete');
+    bookName.classList.add('ft');
+    deleteBtn.classList.add('inp_del');
 
     bookName.textContent = value;
     deleteBtn.textContent = 'delete';
