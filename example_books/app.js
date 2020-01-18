@@ -34,22 +34,28 @@ addForm.addEventListener('submit', function (e) {
 
 
 //hide
-document.getElementById('hide').onclick = function () {
-    document.getElementById('book-list').hidden = true;
-    document.getElementById('hide').onclick = function () {
+
+let checkbox = document.getElementById('hide');
+checkbox.addEventListener('change', function () {
+    if (checkbox.checked) {
+        document.getElementById('book-list').hidden = true;
+    } else {
         document.getElementById('book-list').hidden = false;
     }
-}
+});
+
 //search
 let find = document.getElementById('find');
 find.onkeyup = function () {
     let filter = find.value.toUpperCase();
     let lis = document.getElementsByTagName('li');
     for (let i = 0; i < lis.length; i++) {
-        let name = lis[i].getElementsByClassName('ft')[0].innerHTML;
-        if (name.toUpperCase().indexOf(filter) == 0)
-            lis[i].style.display = 'list-item';
-        else
+        let name = lis[i].getElementsByClassName('ft')[0].textContent;
+        console.log(name);
+        if (name.toUpperCase().indexOf(filter) == -1)
             lis[i].style.display = 'none';
+        else
+            lis[i].style.display = 'list-item';
+
     }
 }
