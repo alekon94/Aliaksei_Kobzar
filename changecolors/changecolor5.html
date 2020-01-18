@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            background-color: var(--main-color);
+        }
+    </style>
+</head>
+<body>
+<select onchange="valcol(this);">
+    <option value="No value">colorless</option>
+    <option>red</option>
+    <option>green</option>
+    <option>blue</option>
+    <option>orange</option>
+    <option>purple</option>
+    <option>black</option>
+</select>
+<script>
+    function valcol(selectElement) {
+        let color = selectElement.value;
+        document.body.style.setProperty('--main-color', color);
+    }
+</script>
+</body>
+</html>

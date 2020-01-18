@@ -11,17 +11,17 @@
 </head>
 <body>
 <input type="color" class="myclass" value="white">
-<input type="submit" class="btn" value="Change color">
+<button onclick="conf(valcol());">Change</button>
 <script>
     function valcol() {
         let a = document.querySelector('.myclass').value;
         return a;
     }
     function conf() {
-        let col = valcol();
-        document.body.style.backgroundColor = col;
+        let color = valcol();
+        document.body.style.setProperty('--main-color', color);
     }
-    document.querySelector(".btn").onclick = conf;
+    document.querySelector(".btn").onclick = conf();
 </script>
 </body>
 </html>
