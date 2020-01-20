@@ -32,21 +32,31 @@ function addButtonClicked() {
   // 1. Вызывает checkIfColorCanBeAdded, чтобы проверить, существует ли название цвета, которое пользователь ввел в текстовом поле, или нет.
   let value = checkIfColorCanBeAdded(htmlElements.input.value);
   // 1.1. Если такого названия цвета не существует, показывает сообщение ""There's no such a color"".
-  if (value == false){
+  if (value === false){
     alert ('There\'s no such a color');
     reset();
   }
   // 1.2. Если же такое название цвета существует, вызывает checkIfColorAdded, чтобы проверить наличие добавляемого цвета выпадающем списке.
-  // 1.2.1. Если выпадающий список еще не содержит добавляемое значение, последовательно вызывает функции addColor, chooseColor и setColor, передавая им в качестве входного параметра значение, которое пользователь ввел в текстовое поле.
-  // 1.2.2. Если значение уже добавлено, показывает сообщение 'Color has been already added'
+  else {
+    let valuecheck = checkIfColorAdded(htmlElements.input.value);
+    // 1.2.2. Если значение уже добавлено, показывает сообщение 'Color has been already added'
+    if (valuecheck == true){
+      alert ('Color has been already added');
+      // 1.2.1. Если выпадающий список еще не содержит добавляемое значение, последовательно вызывает функции addColor, chooseColor и setColor, передавая им в качестве входного параметра значение, которое пользователь ввел в текстовое поле.
+    } else {
+      addColor(htmlElements.input.value);
+      chooseColor(htmlElements.input.value);
+      setColor(htmlElements.input.value);
+    }
+  }
 }
 
 function removeColorClicked() {
   // 1. Проверяет, ввел ли пользователь какой-то текст в текстовое поле
   let value = htmlElements.input.value;
   // 1.1. Если не ввел, показывает сообщение 'Please enter a value first'
-  if (value == null){
-  alert ('Please enter a value first')
+  if (value == ''){
+  alert ('Please enter a value first');
     // 1.2. Если ввел, вызвает removeColor, передавая значение текстового поля в качестве входного параметра. После чего вызывает reset.
   } else {
   removeColor(value);
@@ -56,10 +66,15 @@ function removeColorClicked() {
 
 function removeSelectedColorClicked() {
   // 1. Вызывает getSelectedValue, чтобы получить значение выбранного option в выпадающем списке.
+  let value = getSelectedValue();
   // 1.1. Если значение выбранного option равно 'not selected', показывает сообщение 'Please choose a value to remove'.
+  if (value == 'not selected'){
+    alert ('Please choose a value to remove');
+  } else{
   // 1.2. Если же значение выбранного option не равно 'not selected', вызывает removeColor, передавая значение выбранного option в качестве входного параметра.
+    removeColor(value);
+  }
 }
-
 function getSelectedValue() {
   let selectedIdx = htmlElements.selectColor.selectedIndex;
   return htmlElements.selectColor[selectedIdx].value;
@@ -84,8 +99,11 @@ function checkIfColorAdded(color) {
 
 function addColor(color) {
   // 1. Создает новый HTML элмент option через new Option (https://mzl.la/createOption)
+let newOption = new Option(color, color);
   // 2. Вызывает appendChild (https://mzl.la/2J1CTEo) на выпадающем списке, указывая созданный элмент option в качестве входящего параметра
+  document.querySelector("select").appendChild(newOption);
   // 3. Вызывает функцию reset
+  reset();
 }
 
 function chooseColor(color) {
@@ -118,7 +136,7 @@ function removeColor(color) {
 
 function reset() {
   // 1. Устанавливает значение текстового поля в ''
-  htmlElements.input.value = 'enter new color here';
+  htmlElements.input.value = '';
   // 2. Удаляет CSS переменную --color на body
 }
 
