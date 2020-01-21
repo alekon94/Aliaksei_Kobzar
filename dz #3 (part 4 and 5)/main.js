@@ -22,6 +22,26 @@ initHTMLElements();
 console.log(htmlElements);
 initEvenHandles();
 
+htmlElements.input.onblur = function () {
+  let value = htmlElements.input.value.split('');
+  if (value.length == 0){
+    htmlElements.input.classList.add("error");
+  } else {
+    for (let i=0; i<value.length; i++){
+      if (isNaN(value[i]) == false){
+        htmlElements.input.classList.add("error");
+        break;
+      } else {
+        htmlElements.input.classList.remove("error");
+      }
+  }
+  }
+}
+
+function onblurError () {
+  return htmlElements.input.onblur();
+}
+
 function selectColorValueChanged() {
   // 1. Вызывает setColor, передает знчение выпадающего списка в качестве входного параметра
   let value = htmlElements.selectColor.value;
@@ -34,6 +54,7 @@ function addButtonClicked() {
   // 1.1. Если такого названия цвета не существует, показывает сообщение ""There's no such a color"".
   if (value === false){
     alert ('There\'s no such a color');
+    onblurError();
     reset();
   }
   // 1.2. Если же такое название цвета существует, вызывает checkIfColorAdded, чтобы проверить наличие добавляемого цвета выпадающем списке.
@@ -139,6 +160,7 @@ function removeColor(color) {
   } else {
     alert("There's no such a color");
     reset();
+
   }
 }
 
@@ -159,3 +181,5 @@ function checkIfColorCanBeAdded(color) {
   let colorIsSetCorrectly = div.style.backgroundColor === color;
   return colorIsSetCorrectly;
 }
+
+
