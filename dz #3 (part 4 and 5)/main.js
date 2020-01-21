@@ -44,9 +44,10 @@ function addButtonClicked() {
       alert ('Color has been already added');
       // 1.2.1. Если выпадающий список еще не содержит добавляемое значение, последовательно вызывает функции addColor, chooseColor и setColor, передавая им в качестве входного параметра значение, которое пользователь ввел в текстовое поле.
     } else {
-      addColor(htmlElements.input.value);
-      chooseColor(htmlElements.input.value);
-      setColor(htmlElements.input.value);
+      let color = htmlElements.input.value;
+      addColor(color);
+      chooseColor(color);
+      setColor(color);
     }
   }
 }
@@ -101,7 +102,7 @@ function addColor(color) {
   // 1. Создает новый HTML элмент option через new Option (https://mzl.la/createOption)
 let newOption = new Option(color, color);
   // 2. Вызывает appendChild (https://mzl.la/2J1CTEo) на выпадающем списке, указывая созданный элмент option в качестве входящего параметра
-  document.querySelector("select").appendChild(newOption);
+  htmlElements.selectColor.appendChild(newOption);
   // 3. Вызывает функцию reset
   reset();
 }
@@ -109,6 +110,12 @@ let newOption = new Option(color, color);
 function chooseColor(color) {
   // 1. Так же, как и в функции checkIfColorAdded, пробегает по всем option выпадающего списка начиная со второго элемента (начальное условие цикла будет let i = 1, т.к. элементы коллекций в JavaScript считаются с 0, а нулевой option имеет значение -- Select a value --, поэтому мы не учитываем его в расчетах)
   // 1.1. Как только i-тое значение одного из option совпало со значением цвета, указанного в качестве входного параметра, вызывает функцию setSelectedIndex, передавая в нее индекс i итератора цикла.
+let chooseCol;
+  for (let i = 1; i < htmlElements.selectColor.length; i++) {
+    if (htmlElements.selectColor[i].value === color) {
+      setSelectedIndex(i);
+    }
+  }
 }
 
 function setSelectedIndex(idx) {
@@ -131,6 +138,7 @@ function removeColor(color) {
     }
   } else {
     alert("There's no such a color");
+    reset();
   }
 }
 
@@ -138,6 +146,7 @@ function reset() {
   // 1. Устанавливает значение текстового поля в ''
   htmlElements.input.value = '';
   // 2. Удаляет CSS переменную --color на body
+htmlElements.body.style.setProperty('--color','');
 }
 
 function checkIfColorCanBeAdded(color) {
