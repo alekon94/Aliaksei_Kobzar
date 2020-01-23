@@ -55,7 +55,7 @@ function addButtonClicked() {
   if (value === false){
     alert ('There\'s no such a color');
     onblurError();
-    reset();
+
   }
   // 1.2. Если же такое название цвета существует, вызывает checkIfColorAdded, чтобы проверить наличие добавляемого цвета выпадающем списке.
   else {
