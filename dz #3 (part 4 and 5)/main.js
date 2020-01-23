@@ -95,6 +95,7 @@ function removeSelectedColorClicked() {
   } else{
   // 1.2. Если же значение выбранного option не равно 'not selected', вызывает removeColor, передавая значение выбранного option в качестве входного параметра.
     removeColor(value);
+    reset();
   }
 }
 function getSelectedValue() {
