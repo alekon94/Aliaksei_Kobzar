@@ -1,35 +1,74 @@
+
+tableCreate();
+click();
+buttonCreate();
+
+let change = document.querySelector('button');
+change.addEventListener('click', changeColorsClicked);
+
+
 function tableCreate() {
-    //body reference
-    var body = document.getElementsByTagName("body")[0];
+    let body = document.getElementsByTagName("body")[0];
+    let tbl = document.createElement("table");
+    let tblBody = document.createElement("tbody");
+    for (let j = 0; j < 8; j++) {
 
+        let row = document.createElement("tr");
 
-    var tbl = document.createElement("table");
-    var tblBody = document.createElement("tbody");
+        for (let i = 0; i < 8; i++) {
 
-
-    for (var j = 0; j <= 8; j++) {
-
-        var row = document.createElement("tr");
-
-        for (var i = 0; i < 8; i++) {
-
-            var cell = document.createElement("td");
-
-
-
+            let cell = document.createElement("td");
             row.appendChild(cell);
         }
-
-
         tblBody.appendChild(row);
     }
 
-    // append the <tbody> inside the <table>
     tbl.appendChild(tblBody);
-    // put <table> in the <body>
     body.appendChild(tbl);
-    // tbl border attribute to
-    tbl.setAttribute("border", "2");
-     tbl.offsetWidth
+    tbl.setAttribute("border", "1");
+    tbl.setAttribute("id", "fields");
+    tbl.classList.add('inpcol');
+
 }
-tableCreate();
+
+function buttonCreate() {
+    let body = document.getElementsByTagName("body")[0];
+    let but = document.createElement("button");
+    body.appendChild(but);
+    but.innerHTML = "change colors";
+}
+
+function click (){
+    let table = document.getElementById('fields');
+
+    let selectedTd;
+
+    table.onmousedown = function(event) {
+        let target = event.target;
+
+        while (target != this) {
+            if (target.tagName == 'TD') {
+                highlight(target);
+                return;
+            }
+            target = target.parentNode;
+        }
+    }
+    
+    function highlight(node) {
+
+        selectedTd = node;
+        selectedTd.classList.add('col');
+    }
+    }
+    function changeColorsClicked() {
+let tbl = document.querySelector('table');
+let pickedcell = tbl.querySelectorAll('td');
+tbl.className = 'col';
+for (let elem of pickedcell){
+    if (elem.className == 'col'){
+        elem.className = 'reversecol';
+    }
+}
+}
+    
