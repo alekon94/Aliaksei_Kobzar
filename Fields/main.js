@@ -25,7 +25,6 @@ function tableCreate() {
 
     tbl.appendChild(tblBody);
     body.appendChild(tbl);
-    tbl.setAttribute("border", "1");
     tbl.setAttribute("id", "fields");
     tbl.classList.add('inpcol');
 
@@ -61,14 +60,19 @@ function click (){
         selectedTd.classList.add('col');
     }
     }
+
     function changeColorsClicked() {
-let tbl = document.querySelector('table');
-let pickedcell = tbl.querySelectorAll('td');
-tbl.className = 'col';
-for (let elem of pickedcell){
+
+    let tbl = document.querySelector('table');
+    let pickedcell = tbl.querySelectorAll('td');
+
+    tbl.className = 'col';
+    for (let elem of pickedcell){
+
     if (elem.className == 'col'){
         elem.className = 'reversecol';
     }
+
 }
 }
     

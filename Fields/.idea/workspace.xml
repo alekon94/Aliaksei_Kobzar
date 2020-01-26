@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b2f6d84-dded-486b-99c5-7784da390861" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/body.html" beforeDir="false" afterPath="$PROJECT_DIR$/body.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
@@ -21,6 +20,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="alekon94 &lt;58603445+alekon94@users.noreply.github.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1WqsIwzWJKMioLKOWM9fM2rWOvU" />
@@ -60,11 +64,29 @@
       <option name="presentableId" value="Default" />
       <updated>1579888382205</updated>
       <workItem from="1579888383633" duration="1804000" />
-      <workItem from="1580031971102" duration="10690000" />
+      <workItem from="1580031971102" duration="10941000" />
     </task>
+    <task id="LOCAL-00001" summary="1">
+      <created>1580046765998</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1580046765998</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="1" />
+    <option name="LAST_COMMIT_MESSAGE" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="18" y="29" key="CommitChangelistDialog2" timestamp="1580046765718">
+      <screen x="0" y="23" width="1440" height="811" />
+    </state>
+    <state x="18" y="29" key="CommitChangelistDialog2/0.23.1440.811@0.23.1440.811" timestamp="1580046765718" />
   </component>
 </project>
