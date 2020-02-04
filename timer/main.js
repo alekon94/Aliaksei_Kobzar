@@ -45,6 +45,7 @@ function initEventList(){
     htmlElements.clock.addEventListener('click',selectClock);
     htmlElements.stopBtn.addEventListener('click', stopStopwatch);
     htmlElements.resetBtn.addEventListener('click', resetStopwatch);
+    htmlElements.startBtn.addEventListener('click', activeStopwatch);
 }
 
 function selectStopwatch() {
@@ -58,7 +59,7 @@ function selectStopwatch() {
     htmlElements.resetBtn.classList.remove('hidden');
     htmlElements.output.classList.add("hidden");
     htmlElements.outputStopwatch.classList.remove("hidden");
-    activeStopwatch();
+    htmlElements.outputStopwatch.innerHTML = '0:00:00';
 }
 
 function selectClock() {
@@ -95,26 +96,25 @@ function activeStopwatch () {
     const outputStopwatch = htmlElements.outputStopwatch;
     outputStopwatch.innerHTML = '';
     function Timer() {
-const difference = (new Date().getTime() - startTime) / 1000;
-let seconds = parseInt(difference % 60);
-let minutes = parseInt((difference / 60) % 60);
-const hours = parseInt((difference /360) % 60);
-if (seconds < 10) {
+    const difference = (new Date().getTime() - startTime) / 1000;
+    let seconds = parseInt(difference % 60);
+    let minutes = parseInt((difference / 60) % 60);
+    const hours = parseInt((difference / 360) % 60);
+    if (seconds < 10) {
     seconds = `0${seconds}`;
-}
-if (minutes < 10) {
-    minutes = `0${minutes}`;
-}
-outputStopwatch.innerHTML = `${hours}:${minutes}:${seconds}`;
     }
-}
+    if (minutes < 10) {
+    minutes = `0${minutes}`;
+    }
+    outputStopwatch.innerHTML = `${hours}:${minutes}:${seconds}`;
+    }
+    }
 
 function resetStopwatch() {
-clearInterval(myInterval);
-activeStopwatch();
+    clearInterval(myInterval);
+    selectStopwatch();
 }
 
 function stopStopwatch() {
     clearInterval(myInterval);
 }
-
