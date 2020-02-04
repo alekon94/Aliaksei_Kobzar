@@ -45,7 +45,7 @@ function initEventList(){
     htmlElements.clock.addEventListener('click',selectClock);
     htmlElements.stopBtn.addEventListener('click', stopStopwatch);
     htmlElements.resetBtn.addEventListener('click', resetStopwatch);
-    htmlElements.startBtn.addEventListener('click', activeStopwatch);
+    htmlElements.startBtn.addEventListener('click', startStopwatch);
 }
 
 function selectStopwatch() {
@@ -90,7 +90,7 @@ function selectTimer() {
 }
 
 
-function activeStopwatch () {
+function startStopwatch () {
     const startTime = new Date().getTime();
     myInterval = setInterval(Timer, 1);
     const outputStopwatch = htmlElements.outputStopwatch;
