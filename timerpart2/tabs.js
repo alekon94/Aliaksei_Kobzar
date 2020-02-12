@@ -1,7 +1,9 @@
+import {hi} from '/clock';
 let timerId;
 let myInterval;
 let startTime;
 let outputStopwatch;
+hi();
 clockStart();
 function clockStart() {
     timerId = setInterval(onIntervalNextTick, 1);
