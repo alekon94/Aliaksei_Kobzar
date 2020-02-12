@@ -1,4 +1,5 @@
 let timerId;
+let myInterval;
 
 clockStart();
 
@@ -49,10 +50,10 @@ function initEventList(){
 }
 
 function selectStopwatch() {
-    htmlElements.timer.classList.remove("selected");
+    const links = [htmlElements.timer, htmlElements.stopwatch, htmlElements.clock];
+    links.forEach(element => element.classList.remove("selected"));
     htmlElements.stopwatch.classList.add("selected");
-    htmlElements.clock.classList.remove("selected");
-    htmlElements.startBtn.classList.remove('hidden');
+
 
     htmlElements.startBtn.classList.remove('hidden');
     htmlElements.stopBtn.classList.remove('hidden');
