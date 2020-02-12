@@ -1,4 +1,5 @@
-import {hi} from '/clock';
+import { hi } from "./clock";
+
 let timerId;
 let myInterval;
 let startTime;
