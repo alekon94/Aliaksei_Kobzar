@@ -1,5 +1,5 @@
 import { htmlElements } from "./tabs.js";
-import {links, tabs} from "./tabs.js";
+import { links, tabs} from "./tabs.js";
 import {outputStopwatch, startTime} from "./tabs.js";
 
 function selectStopwatch() {
