@@ -1,10 +1,13 @@
 import { htmlElements } from "./tabs.js";
 
+let timerId;
 
-function clockStart(id) {
-    id = setInterval(onIntervalNextTick, 1);
+function Clockstart () {}
 
+Clockstart.prototype.init = function () {
+timerId = setInterval(onIntervalNextTick, 1);
 }
+
 
 function onIntervalNextTick() {
     const clock = htmlElements.output;
@@ -23,4 +26,4 @@ function onIntervalNextTick() {
     clock.innerHTML = `${hours}:${minutes}:${seconds}`;
 
 }
-export { clockStart, onIntervalNextTick };
+export { Clockstart };
