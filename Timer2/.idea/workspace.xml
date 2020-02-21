@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="09df4d43-f04b-4742-94cd-7dfc1bc6fd3a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/helper.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/body.html" beforeDir="false" afterPath="$PROJECT_DIR$/body.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clock.js" beforeDir="false" afterPath="$PROJECT_DIR$/clock.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stopwatch.js" beforeDir="false" afterPath="$PROJECT_DIR$/stopwatch.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tabs.js" beforeDir="false" afterPath="$PROJECT_DIR$/tabs.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +31,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="C:/Program Files/nodejs/node.exe" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="ServiceViewManager">
@@ -62,7 +57,8 @@
       <option name="presentableId" value="Default" />
       <updated>1581698465310</updated>
       <workItem from="1581698466443" duration="270000" />
-      <workItem from="1581700322964" duration="8917000" />
+      <workItem from="1581700322964" duration="9480000" />
+      <workItem from="1581753058496" duration="2122000" />
     </task>
     <servers />
   </component>
