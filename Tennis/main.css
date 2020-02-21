@@ -1,0 +1,42 @@
+body {
+    background: darkgray;
+
+}
+.calendar {
+    width: 800px;
+    height: 500px;
+    background: azure;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+.calendar .left {
+    float: left;
+    background: rgba(0,174,16,0.96);
+    width: 350px;
+
+}
+.calendar .right {
+    float: right;
+    background: white;
+    width: 450px;
+}
+.prev-year {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+.next-year {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
