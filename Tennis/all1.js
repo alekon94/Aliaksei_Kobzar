@@ -174,17 +174,15 @@ class CALENDAR {
         this.elements.eventAddBtn.addEventListener('click', e => {
             let fieldValue = this.elements.eventField.value;
             if (!fieldValue) return false;
-            let stringEvent = `<li>
-                    <p>${fieldValue}</p>
-                    <i class="fa fa-trash-o"></i>
-                  </li>
-                `;
+            let stringEvent = `<li><p>${fieldValue}<i class="fa fa-trash-o"></i></p></li>`;
             let dateFormatted = this.getFormattedDate(new Date(this.date));
             if (!this.eventList[dateFormatted]) this.eventList[dateFormatted] = [];
             this.eventList[dateFormatted].push(stringEvent);
             localStorage.setItem(localStorageName, JSON.stringify(this.eventList));
             this.elements.eventField.value = '';
+            localStorage.clear();
             this.drawAll()
+
         });
 
 
