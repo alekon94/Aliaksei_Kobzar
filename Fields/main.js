@@ -1,4 +1,3 @@
-
 tableCreate();
 click();
 buttonCreate();
@@ -37,12 +36,12 @@ function buttonCreate() {
     but.innerHTML = "change colors";
 }
 
-function click (){
+function click() {
     let table = document.getElementById('fields');
 
     let selectedTd;
 
-    table.onmousedown = function(event) {
+    table.onmousedown = function (event) {
         let target = event.target;
 
         while (target != this) {
@@ -53,26 +52,26 @@ function click (){
             target = target.parentNode;
         }
     }
-    
+
     function highlight(node) {
 
         selectedTd = node;
         selectedTd.classList.add('col');
     }
-    }
+}
 
-    function changeColorsClicked() {
+function changeColorsClicked() {
 
     let tbl = document.querySelector('table');
     let pickedcell = tbl.querySelectorAll('td');
 
     tbl.className = 'col';
-    for (let elem of pickedcell){
+    for (let elem of pickedcell) {
 
-    if (elem.className == 'col'){
-        elem.className = 'reversecol';
+        if (elem.className == 'col') {
+            elem.className = 'reversecol';
+        }
+
     }
-
-}
 }
     
