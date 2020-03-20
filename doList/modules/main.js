@@ -1,6 +1,4 @@
-import {Events, localStorageName} from "./events.js";
-
-//localStorage.clear();
+import {Events} from "./events.js";
 class MAIN extends Events {
     init() {
 
@@ -14,9 +12,15 @@ class MAIN extends Events {
         this.drawDays();
         this.drawYearAndCurrentDay();
         this.drawEvents();
-
+        this.drawEventsCount();
     }
 }
 
-let project = new MAIN({id: "calendar"});
-project.init();
+
+try {
+    let project = new MAIN({id: "calendar"});
+    project.init();
+} catch (err) {
+    alert('Error detected! All events will be clear!');
+    localStorage.clear();
+}

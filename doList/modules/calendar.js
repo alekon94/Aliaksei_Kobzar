@@ -14,6 +14,7 @@ class Calendar {
             eventAddBtn: this.getFirstElementInsideIdByClassName('add-event-day-field-btn'),
             currentDay: this.getFirstElementInsideIdByClassName('calendar-bottom-side-day'),
             currentWeekDay: this.getFirstElementInsideIdByClassName('calendar-bottom-side-day-of-week'),
+            eventsCount: this.getFirstElementInsideIdByClassName('calendar-bottom-side-events-count'),
             prevYear: this.getFirstElementInsideIdByClassName('calendar-change-year-slider-prev'),
             nextYear: this.getFirstElementInsideIdByClassName('calendar-change-year-slider-next')
         };
@@ -23,8 +24,6 @@ class Calendar {
         this.options.maxDays = 37;
 
     }
-
-
 
 
     drawEvents() {
@@ -45,6 +44,23 @@ class Calendar {
         this.elements.year.innerHTML = calendar.active.year;
         this.elements.currentDay.innerHTML = calendar.active.day;
         this.elements.currentWeekDay.innerHTML = AVAILABLE_WEEK_DAYS[calendar.active.week];
+    }
+
+    drawEventsCount() {
+        let count = 0;
+        let events = this.eventList;
+        for (let [key, value] of Object.entries(events)) {
+            let stringDate = key.toString();
+            let keyDate = new Date(stringDate);
+            let currentDate = new Date(this.date);
+            if (keyDate.getMonth() === currentDate.getMonth() && keyDate.getFullYear() === currentDate.getFullYear()) {
+                for (let id of value) {
+                    count++;
+                }
+            }
+        }
+        this.elements.eventsCount.innerHTML = 'Events in month: ' + count;
+
     }
 
     drawDays() {
@@ -122,7 +138,6 @@ class Calendar {
     }
 
 
-
     updateTime(time) {
         this.date = +new Date(time);
     }
@@ -167,7 +182,7 @@ class Calendar {
     }
 
     getFormattedDate(date) {
-        return `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
+        return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
     }
 
     range(number) {

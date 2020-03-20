@@ -19,7 +19,7 @@ class Events extends Calendar {
         this.elements.month.addEventListener('click', e => {
             let calendar = this.getCalendar();
             let month = e.srcElement.getAttribute('data-month');
-            if (!month || calendar.active.month == month) return false;
+            if (!month || calendar.active.month === month) return false;
 
             let newMonth = new Date(calendar.active.tm).setMonth(month);
             this.updateTime(newMonth);
@@ -47,6 +47,11 @@ class Events extends Calendar {
             id++;
             let fieldValue = this.elements.eventField.value;
             if (!fieldValue) return false;
+            else if (fieldValue.length > 60) {
+
+                alert('Number of symbols no more than 60!');
+                return false;
+            }
             let stringEvent = `<p>${fieldValue}</p><i class="fa fa-trash-o del-event-field-btn" job="delete" id="${id}"></i>`;
             let dateFormatted = this.getFormattedDate(new Date(this.date));
             if (!this.eventList[dateFormatted]) this.eventList[dateFormatted] = [];
@@ -57,7 +62,13 @@ class Events extends Calendar {
             localStorage.setItem(localStorageName, JSON.stringify(this.eventList));
             localStorage.setItem("idCount", id);
             this.elements.eventField.value = '';
-            this.drawAll()
+
+            try {
+                this.drawAll();
+            } catch (err) {
+                localStorage.clear();
+                this.drawAll();
+            }
 
         });
         this.elements.eventList.addEventListener('click', e => {
@@ -67,20 +78,22 @@ class Events extends Calendar {
             let item = this.eventList[dateFormatted];
             if (classElement == "fa fa-trash-o del-event-field-btn") {
                 element.parentNode.parentNode.removeChild(element.parentNode);
-                console.log(this.eventList[dateFormatted]);
                 for (let i = 0; i < item.length; i++) {
                     if (item[i].id == e.target.id) {
-                        console.log('hi');
                         item.splice(i, 1);
                         break;
                     }
                 }
-                console.log(item.length);
                 if (item.length == 0) {
                     delete this.eventList[dateFormatted];
                 }
                 localStorage.setItem(localStorageName, JSON.stringify(this.eventList));
-                this.drawAll()
+                try {
+                    this.drawAll();
+                } catch (err) {
+                    localStorage.clear();
+                    this.drawAll();
+                }
 
             }
 

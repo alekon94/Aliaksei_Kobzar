@@ -24,6 +24,9 @@ body {
 .cursor-pointer {
     cursor: pointer;
 }
+.cursor-pointer:hover {
+    color: #737373;
+}
 
 
 .calendar, .calendar .add-event-day .add-event-day-field-btn, .calendar .del-event-day-field-btn, .calendar .calendar-days li:after {
@@ -50,6 +53,10 @@ body {
     position: absolute;
 }
 
+.del-event-field-btn:hover {
+color: #737373;
+}
+
 .calendar .calendar-bottom-side-day-of-week, .calendar .current-day-events ul, .calendar .add-event-day, .calendar .calendar-change-year, .calendar .calendar-days li {
     position: relative;
 }
@@ -72,7 +79,6 @@ body {
     width: 540px;
     height: 37%;
     background: #00a807;
-
     transition: background-color 300ms linear;
 
 }
@@ -117,6 +123,7 @@ body {
     padding-right: 30px;
 }
 
+
 .calendar .add-event-day .add-event-day-field:focus {
     outline: none;
 }
@@ -128,6 +135,9 @@ body {
 .calendar .add-event-day .add-event-day-field-btn {
     left: inherit;
     line-height: 34px;
+}
+.add-event-day-field-btn:hover {
+    color: #737373;
 }
 
 .calendar .top-side {
@@ -246,11 +256,18 @@ body {
     padding: 0;
     margin: 0;
     left: 5px;
+    border-top: 1px solid #ccc;
+    height: 30px;
 }
 
 .calendar .current-day-events p {
     left: 10px;
     position: inherit;
+}
+
+.calendar .calendar-bottom-side-events-count {
+    position: absolute;
+    color: #737373;
 }
 
 .calendar
