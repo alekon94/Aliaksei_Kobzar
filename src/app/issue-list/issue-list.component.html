@@ -1,0 +1,24 @@
+
+<body style="font-size: 14px; position: relative; padding: 15px 20px;">
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Description</th>
+        <th>Autor</th>
+        <th>Date</th>
+        <th>Link</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let issue of issuesArray; let i = index">
+        <td><a href="/view?num={{issue.number}}">{{issue.title}}</a></td>
+        <td>{{issue.login}}</td>
+        <td>{{issue.date}}</td>
+        <td><a href="{{issue.url}}">{{issue.url}}</a></td>
+        
+      </tr>
+      
+      </tbody>
+    </table>
+    </body>
+    
